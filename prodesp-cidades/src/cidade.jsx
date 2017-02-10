@@ -1,0 +1,68 @@
+import React, { PropTypes } from 'react';
+
+const propTypes = {
+    datasource: PropTypes.array
+}
+
+const defaultProps = {
+    datasource: []
+}
+
+class Cidade extends React.Component {
+
+    constructor(props) {
+        super(props);
+    }
+
+    render(){
+        const items = this.props.datasource.map( (item, i) =>
+            <CidadeItem key={i} nome={item.nome} area={item.area} populacao={item.populacao} capital={item.capital} />
+        );
+
+        return (
+            <table className="table table-condensed table-striped">
+                <caption>{this.props.title}</caption>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Populaçao</th>
+                        <th>Area</th>
+                        <th>Capital</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {items}
+                </tbody>
+            </table>
+        );
+    };
+}
+
+class CidadeItem extends React.Component {
+
+    constructor(props) {
+        super(props);
+    }
+
+    render(){
+        return (
+            <tr>
+                <th scope="row">{this.props.nome}</th>
+                <td>{this.props.area}</td>
+                <td>{this.props.populacao}</td>
+                <td>
+                    <div className="checkbox">
+                        <label>
+                            <input type="checkbox" checked={this.props.capital} readOnly="true" />
+                        </label>
+                    </div>
+                </td>
+            </tr>
+        );
+    };
+}
+
+Cidade.propTypes = propTypes;
+Cidade.defaultProps = defaultProps;
+
+export default Cidade;
