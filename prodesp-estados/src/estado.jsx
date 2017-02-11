@@ -41,7 +41,7 @@ class EstadoItem extends React.Component {
     }
 
     render(){
-        return (<li className="list-group-item" onClick={this.onItemClick}><a href="#">{this.props.nome}</a></li>);
+        return (<li className="list-group-item" onClick={this.onItemClick}><a href="#">{this.props.sigla} - {this.props.nome}</a></li>);
     };
 }
 

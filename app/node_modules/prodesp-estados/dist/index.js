@@ -136,6 +136,8 @@
 	                _react2.default.createElement(
 	                    "a",
 	                    { href: "#" },
+	                    this.props.sigla,
+	                    " - ",
 	                    this.props.nome
 	                )
 	            );
